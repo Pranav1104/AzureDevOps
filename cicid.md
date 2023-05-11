@@ -93,11 +93,11 @@ To build your code or deploy your software using Azure Pipelines, you need at le
 
 Go to **Organization Settings** and then **Pipelines** > **Parallel jobs**. If you see value **0** under **Microsoft-hosted** that means you need a **Self-hosted** agent to run your pipeline.
 
-![MS-hosted agent](media/cicd/azure-devops-ms-hosted-agent.png)
+![MS-hosted agent](cicd/azure-devops-ms-hosted-agent.png)
 
 You can create that by following details mentioned in [Self-hosted agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser&preserve-view=true#install). After successful configuration, you'll be able to see available agent under **Organization Settings** > **Agent pools** > **{youragentname}**
 
-![Self-hosted agent](media/cicd/azure-devops-self-hosted-agent.png)
+![Self-hosted agent](cicd/azure-devops-self-hosted-agent.png)
 
 ## Configure the Azure Pipelines pipeline
 
@@ -107,19 +107,19 @@ There are three distinct steps to complete. Completing the steps in the followin
 
 1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline:
 
-    ![Setup Build button](media/cicd/azure-devops-create-pipeline.png)
+    ![Setup Build button](cicd/azure-devops-create-pipeline.png)
 
 1. Use `Use the classic editor` to create the pipeline.
 
-    ![Use classic editor](media/cicd/azure-devops-classic-editor.png)
+    ![Use classic editor](cicd/azure-devops-classic-editor.png)
 
 1. Select the **GitHub** option from the **Select a source** section::
 
-    ![Select a source - GitHub](media/cicd/azure-devops-select-source.png)
+    ![Select a source - GitHub](cicd/azure-devops-select-source.png)
 
 1. Authorization is required before Azure DevOps can access your GitHub repository. Enter *<GitHub_username> GitHub connection* in the **Connection name** textbox. For example:
 
-    ![GitHub connection name](media/cicd/azure-devops-authz.png)
+    ![GitHub connection name](cicd/azure-devops-authz.png)
 
 1. If two-factor authentication is enabled on your GitHub account, a personal access token is required. In that case, click the **Authorize with a GitHub personal access token** link. See the [official GitHub personal access token creation instructions](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) for help. Only the *repo* scope of permissions is needed. Otherwise, click the **Authorize using OAuth** button.
 1. When prompted, sign in to your GitHub account. Then select Authorize to grant access to your Azure DevOps organization. If successful, a new service endpoint is created.
@@ -130,12 +130,12 @@ There are three distinct steps to complete. Completing the steps in the followin
 
 1. From the template selection page, enter *ASP.NET Core* in the search box:
 
-    ![ASP.NET Core search on template page](media/cicd/azure-devops-template-selection.png)
+    ![ASP.NET Core search on template page](cicd/azure-devops-template-selection.png)
 
 1. The template search results appear. Hover over the **ASP.NET Core** template, and click the **Apply** button.
 1. The **Tasks** tab of the build definition appears. Select the self-hosted **Agent pool** if you have created that in the earlier step.
 
-    ![Select Self-hosted agent pool](media/cicd/azure-devops-build-agent-pool.png)
+    ![Select Self-hosted agent pool](cicd/azure-devops-build-agent-pool.png)
 
     > [!NOTE]
     > If you are using MS-hosted agent then select the *Hosted > Azure Pipelines* from drop down.
@@ -143,17 +143,17 @@ There are three distinct steps to complete. Completing the steps in the followin
 1. Click the **Triggers** tab.
 1. Check the **Enable continuous integration** box. Under the **Branch filters** section, confirm that the **Type** drop-down is set to *Include*. Set the **Branch specification** drop-down to *main*.
 
-    ![Enable continuous integration settings](media/cicd/azure-devops-enable-ci.png)
+    ![Enable continuous integration settings](cicd/azure-devops-enable-ci.png)
 
     These settings cause a build to trigger when any change is pushed to the default branch (*main*) of the GitHub repository. Continuous integration is tested in the [Commit changes to GitHub and automatically deploy to Azure](#commit-changes-to-github-and-automatically-deploy-to-azure) section.
 
 1. Click the **Save & queue** button, and select the **Save** option:
 
-    ![Save button](media/cicd/azure-devops-save-build.png)
+    ![Save button](cicd/azure-devops-save-build.png)
 
 1. The following modal dialog appears:
 
-    ![Save build definition - modal dialog](media/cicd/azure-devops-save-modal.png)
+    ![Save build definition - modal dialog](cicd/azure-devops-save-modal.png)
 
     Use the default folder of *\\*, and click the **Save** button.
 
@@ -161,21 +161,21 @@ There are three distinct steps to complete. Completing the steps in the followin
 
 1. Click the **Releases** tab of your team project. Click the **New pipeline** button.
 
-    ![Releases tab - New definition button](media/cicd/azure-devops-create-release.png)
+    ![Releases tab - New definition button](cicd/azure-devops-create-release.png)
 
     The template selection pane appears.
 
 1. From the template selection page, enter *App Service Deployment* in the search box:
 
-    ![Release pipeline template search box](media/cicd/azure-devops-select-template.png)
+    ![Release pipeline template search box](cicd/azure-devops-select-template.png)
 
 1. The template search results appear. Hover over the **Azure App Service Deployment with Slot** template, and click the **Apply** button. The **Pipeline** tab of the release pipeline appears.
 
-    ![Release pipeline Pipeline tab](media/cicd/azure-devops-new-release-pipeline.png)
+    ![Release pipeline Pipeline tab](cicd/azure-devops-new-release-pipeline.png)
 
 1. Click the **Add** button in the **Artifacts** box. The **Add artifact** panel appears:
 
-    ![Release pipeline - Add artifact panel](media/cicd/azure-devops-release-add-artifacts.png)
+    ![Release pipeline - Add artifact panel](cicd/azure-devops-release-add-artifacts.png)
 
 1. Select the **Build** tile from the **Source type** section. This type allows for the linking of the release pipeline to the build definition.
 1. Select *MyFirstProject* from the **Project** drop-down.
@@ -185,7 +185,7 @@ There are three distinct steps to complete. Completing the steps in the followin
 1. Click the **Add** button. The **Artifacts** section updates to display the changes.
 1. Click the lightning bolt icon to enable continuous deployments:
 
-    ![Release pipeline Artifacts - lightning bolt icon](media/cicd/azure-devops-artifacts-lightning-bolt.png)
+    ![Release pipeline Artifacts - lightning bolt icon](cicd/azure-devops-artifacts-lightning-bolt.png)
 
     With this option enabled, a deployment occurs each time a new build is available.
 1. A **Continuous deployment trigger** panel appears to the right. Click the toggle button to enable the feature. It isn't necessary to enable the **Pull request trigger**.
@@ -193,11 +193,11 @@ There are three distinct steps to complete. Completing the steps in the followin
 1. Click the **Save** button. Click the **OK** button in the resulting **Save** modal dialog.
 1. Click the **Stage 1** box. An **Stage** panel appears to the right. Change the *Stage 1* text in the **Stage name** textbox to *Production*.
 
-   ![Release pipeline - Stage name textbox](media/cicd/azure-devops-environment-name-textbox.png)
+   ![Release pipeline - Stage name textbox](cicd/azure-devops-environment-name-textbox.png)
 
 1. Click the **1 phase, 2 tasks** link in the **Production** box:
 
-    ![Release pipeline - Production environment link.png](media/cicd/azure-devops-production-link.png)
+    ![Release pipeline - Production environment link.png](cicd/azure-devops-production-link.png)
 
     The **Tasks** tab of the environment appears.
 1. Click the **Deploy Azure App Service to Slot** task. Its settings appear in a panel to the right.
@@ -209,7 +209,7 @@ There are three distinct steps to complete. Completing the steps in the followin
 1. Select **Run on agent*** under **Tasks**. On the right pane, you'll see **Agent Job**.
 1. Select the self-hosted **Agent pool** if you have created that in the earlier step.
 
-    ![Select Self-hosted agent](media/cicd/azure-devops-release-select-agent-pool.png)
+    ![Select Self-hosted agent](cicd/azure-devops-release-select-agent-pool.png)
 
     > [!NOTE]
     > If you are using MS-hosted agent then select the *Hosted > Azure Pipelines* from drop down.
@@ -217,7 +217,7 @@ There are three distinct steps to complete. Completing the steps in the followin
 1. Click the **Save** button.
 1. Hover over the default release pipeline name. Click the pencil icon to edit it. Use *MyFirstProject-ASP.NET Core-CD* as the name.
 
-    ![Release pipeline name](media/cicd/azure-devops-release-definition-name.png)
+    ![Release pipeline name](cicd/azure-devops-release-definition-name.png)
 
 1. Click the **Save** button.
 
@@ -242,19 +242,19 @@ There are three distinct steps to complete. Completing the steps in the followin
 
     The build is triggered, since continuous integration is enabled in the build definition's **Triggers** tab:
 
-    ![enable continuous integration](media/cicd/enable-ci.png)
+    ![enable continuous integration](cicd/enable-ci.png)
 
 1. Navigate to the **Pipelines**. You'll see the CI pipeline details and monitor each steps if you drill down **Jobs** details.
 
-    ![Trigger build pipeline](media/cicd/azure-devops-pipepine-build.png)
+    ![Trigger build pipeline](cicd/azure-devops-pipepine-build.png)
 
 1. Similarly, go to the **Releases** tab to see the details of CD pipeline. You can always drill down further to see more details of each step.
 
-    ![Release pipeline](media/cicd/azure-devops-release-pipeline-run.png)
+    ![Release pipeline](cicd/azure-devops-release-pipeline-run.png)
 
 1. Once the build succeeds, a deployment to Azure occurs. Navigate to the app in the browser. Notice that the "V4" text appears in the heading:
 
-    ![updated app](media/cicd/updated-app-v4.png)
+    ![updated app](cicd/updated-app-v4.png)
 
 ## Examine the Azure Pipelines pipeline
 
@@ -264,7 +264,7 @@ A build definition was created with the name *MyFirstProject-ASP.NET Core-CI*. U
 
 The build definition's **Tasks** tab lists the individual steps being used. There are five build tasks.
 
-![build definition tasks](media/cicd/azure-devops-build-definition-tasks.png)
+![build definition tasks](cicd/azure-devops-build-definition-tasks.png)
 
 1. **Restore** &mdash; Executes the `dotnet restore` command to restore the app's NuGet packages. The default package feed used is nuget.org.
 1. **Build** &mdash; Executes the `dotnet build --configuration release` command to compile the app's code. This `--configuration` option is used to produce an optimized version of the code, which is suitable for deployment to a production environment. Modify the *BuildConfiguration* variable on the build definition's **Variables** tab if, for example, a debug configuration is needed.
@@ -278,17 +278,17 @@ The build definition's **Tasks** tab lists the individual steps being used. Ther
 
 Click the build definition's **Summary** link to view a history of builds with the definition:
 
-![Screenshot showing build definition history](media/cicd/build-definition-summary.png)
+![Screenshot showing build definition history](cicd/build-definition-summary.png)
 
 On the resulting page, click the individual build for more details.
 
-![Screenshot showing build definition summary page](media/cicd/azure-devops-build-definition-summary.png)
+![Screenshot showing build definition summary page](cicd/azure-devops-build-definition-summary.png)
 
 A summary of this specific build is displayed. Click the **published** link, and notice the *drop* folder produced by the build is listed:
 
-![Screenshot showing build definition artifacts - drop folder](media/cicd/azure-devops-build-artifacts.png)
+![Screenshot showing build definition artifacts - drop folder](cicd/azure-devops-build-artifacts.png)
 
-![Build Artifacts](media/cicd/azure-devops-artifacts.png)
+![Build Artifacts](cicd/azure-devops-artifacts.png)
 
 Use the ellipsis and click on **Downloads artifacts** links to inspect the published artifacts.
 
@@ -296,25 +296,25 @@ Use the ellipsis and click on **Downloads artifacts** links to inspect the publi
 
 A release pipeline was created with the name *MyFirstProject-ASP.NET Core-CD*:
 
-![Screenshot showing release pipeline overview](media/cicd/azure-devops-release-pipeline.png)
+![Screenshot showing release pipeline overview](cicd/azure-devops-release-pipeline.png)
 
 The two major components of the release pipeline are the **Artifacts** and the **Stages**. Clicking the box in the **Artifacts** section reveals the following panel:
 
-![Screenshot showing release pipeline artifacts](media/cicd/azure-devops-release-definition-tasks.png)
+![Screenshot showing release pipeline artifacts](cicd/azure-devops-release-definition-tasks.png)
 
 The **Source (Build definition)** value represents the build definition to which this release pipeline is linked. The *.zip* file produced by a successful run of the build definition is provided to the *Production* environment for deployment to Azure. Click the *1 phase, 2 tasks* link in the *Production* environment box to view the release pipeline tasks:
 
-![Screenshot showing release pipeline tasks](media/cicd/release-definition-tasks.png)
+![Screenshot showing release pipeline tasks](cicd/release-definition-tasks.png)
 
 The release pipeline consists of two tasks: *Deploy Azure App Service to Slot* and *Manage Azure App Service - Slot Swap*. Clicking the first task reveals the following task configuration:
 
-![Screenshot showing release pipeline tasks](media/cicd/release-definition-tasks.png)
+![Screenshot showing release pipeline tasks](cicd/release-definition-tasks.png)
 
 The Azure subscription, service type, web app name, resource group, and deployment slot are defined in the deployment task. The **Package or folder** textbox holds the *.zip* file path to be extracted and deployed to the *staging* slot of the *mywebapp\<unique_number\>* web app.
 
 Clicking the slot swap task reveals the following task configuration:
 
-![Screenshot showing release pipeline slot swap task](media/cicd/release-definition-task2.png)
+![Screenshot showing release pipeline slot swap task](cicd/release-definition-task2.png)
 
 The subscription, resource group, service type, web app name, and deployment slot details are provided. The **Swap with Production** check box is checked. Consequently, the bits deployed to the *staging* slot are swapped into the production environment.
 
