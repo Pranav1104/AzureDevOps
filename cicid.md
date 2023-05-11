@@ -35,7 +35,7 @@ In this section, you'll complete the following tasks:
 1. Open a browser window, and navigate to `https://github.com`.
 1. Click the **+** drop-down in the header, and select **New repository**:
 
-    ![GitHub New Repository option](media/cicd/github-new-repo.png)
+    ![GitHub New Repository option](cicd/github-new-repo.png)
 
 1. Select your account in the **Owner** drop-down, and enter *simple-feed-reader* in the **Repository name** textbox.
 1. Click the **Create repository** button.
@@ -66,7 +66,7 @@ Remove the local Git deployment with the following steps. Azure Pipelines (an Az
 
 1. Open the [Azure portal](https://portal.azure.com/), and navigate to the *staging (mywebapp\<unique_number\>/staging)* Web App. The Web App can be quickly located by entering *staging* in the portal's search box:
 
-    ![staging Web App search term](media/cicd/portal-search-box.png)
+    ![staging Web App search term](cicd/portal-search-box.png)
 
 1. Click **Deployment Center**. A new panel appears. Click **Disconnect** to remove the local Git source control configuration that was added in the previous chapter. Confirm the removal operation by clicking the **Yes** button.
 1. Navigate to the *mywebapp<unique_number>* App Service. As a reminder, the portal's search box can be used to quickly locate the App Service.
