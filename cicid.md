@@ -1,12 +1,8 @@
 ---
 title: Continuous integration and deployment - DevOps for ASP.NET Core Developers
-author: CamSoper
+author: Pranav Kishor Bhadekar
 description: Continuous integration and deployment in DevOps for ASP.NET Core Developers
-ms.author: scaddie
-ms.date: 10/24/2018
-ms.custom: "devx-track-csharp, mvc, seodec18"
-no-loc: [appsettings.json, "ASP.NET Core Identity", cookie, Cookie, Blazor, "Blazor Server", "Blazor WebAssembly", "Identity", "Let's Encrypt", Razor, SignalR]
-uid: azure/devops/cicd
+ms.date: 11 May 2023
 ---
 # Continuous integration and deployment with Azure DevOps
 
@@ -317,13 +313,3 @@ Clicking the slot swap task reveals the following task configuration:
 ![Screenshot showing release pipeline slot swap task](cicd/release-definition-task2.png)
 
 The subscription, resource group, service type, web app name, and deployment slot details are provided. The **Swap with Production** check box is checked. Consequently, the bits deployed to the *staging* slot are swapped into the production environment.
-
-## Additional reading
-
-* [Create your first pipeline with Azure Pipelines](/azure/devops/pipelines/create-first-pipeline)
-* [Build and .NET Core project](/azure/devops/pipelines/languages/dotnet-core)
-* [Deploy a web app with Azure Pipelines](/azure/devops/pipelines/targets/webapp)
-
->[!div class="step-by-step"]
->[Previous](deploying-to-app-service.md)
->[Next](actions-index.md)
